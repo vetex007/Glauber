@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mathematics | Glauber Model</title>
+  <title>Mathematical Framework | Glauber Model</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -20,9 +20,43 @@
   <h1>Mathematical Framework of the Glauber Model</h1>
 
   <p>
-    In the Glauber model, atomic nuclei are treated as collections of nucleons
-    whose spatial distribution follows a nuclear density profile. For medium
-    and heavy nuclei, the Woods–Saxon distribution is commonly employed:
+    The Glauber model provides a quantitative framework to describe the geometry
+    of high-energy nuclear collisions. Its goal is not to model the full dynamics
+    of the strong interaction, but rather to determine geometric quantities that
+    characterize the initial state of the collision.
+  </p>
+
+  <p>
+    In this section, we present the mathematical foundations of the Glauber model,
+    following the standard formulation used in modern heavy-ion analyses
+    :contentReference[oaicite:1]{index=1}.
+  </p>
+</section>
+
+<section class="highlight">
+  <h2>Basic Physical Assumptions</h2>
+
+  <ul>
+    <li>Nuclei consist of nucleons distributed according to measured density profiles</li>
+    <li>Nucleons travel along straight-line trajectories at ultra-relativistic energies</li>
+    <li>Binary nucleon–nucleon collisions occur probabilistically</li>
+    <li>The inelastic nucleon–nucleon cross section σ<sub>NN</sub><sup>inel</sup> is an external input</li>
+  </ul>
+
+  <p>
+    These assumptions allow a separation of collision geometry from microscopic
+    particle production dynamics.
+  </p>
+</section>
+
+---
+
+<section>
+  <h2>Nuclear Density Distribution</h2>
+
+  <p>
+    For medium and heavy nuclei, the spatial distribution of nucleons is commonly
+    parameterized using the Woods–Saxon (Fermi) distribution:
   </p>
 
   <p class="equation">
@@ -30,40 +64,168 @@
   </p>
 
   <p>
-    Here, <em>R</em> represents the nuclear radius, <em>a</em> is the surface
-    diffuseness parameter, and ρ<sub>0</sub> is the central nuclear density. This
-    form reflects an approximately constant density in the nuclear interior with
-    a smooth falloff at the surface.
+    Here, <strong>R</strong> is the nuclear radius, <strong>a</strong> is the surface
+    diffuseness parameter, and ρ<sub>0</sub> is the central density. This form
+    reproduces electron–nucleus scattering data and provides realistic nuclear
+    geometries :contentReference[oaicite:2]{index=2}.
   </p>
+</section>
+
+
+::contentReference[oaicite:3]{index=3}
+
+
+---
+
+<section>
+  <h2>Nuclear Thickness Function</h2>
 
   <p>
-    At ultra-relativistic energies, nucleons are assumed to travel along
-    straight-line trajectories. A nucleon–nucleon collision occurs when the
-    transverse distance between two nucleons from different nuclei satisfies:
+    Since collisions are treated in the transverse plane, the three-dimensional
+    density is integrated along the beam direction to define the nuclear
+    thickness function:
   </p>
 
   <p class="equation">
-    d<sub>T</sub> ≤ √(σ<sub>NN</sub> / π)
+    T<sub>A</sub>(s) = ∫ ρ<sub>A</sub>(s, z) dz
   </p>
 
   <p>
-    where σ<sub>NN</sub> denotes the inelastic nucleon–nucleon cross section at
-    the given collision energy. This geometric criterion determines whether an
-    inelastic interaction takes place.
+    The thickness function represents the probability density of finding a
+    nucleon at a given transverse position <em>s</em>. It has dimensions of
+    inverse area and plays a central role in Glauber calculations.
+  </p>
+</section>
+
+
+::contentReference[oaicite:4]{index=4}
+
+
+---
+
+<section>
+  <h2>Nuclear Overlap Function</h2>
+
+  <p>
+    For a collision between nuclei A and B at impact parameter <em>b</em>, the
+    overlap function is defined as:
+  </p>
+
+  <p class="equation">
+    T<sub>AB</sub>(b) = ∫ T<sub>A</sub>(s) T<sub>B</sub>(s − b) d²s
   </p>
 
   <p>
-    The number of participating nucleons, denoted as
-    <em>N<sub>part</sub></em>, corresponds to nucleons that undergo at least one
-    inelastic collision. The number of binary collisions,
-    <em>N<sub>coll</sub></em>, counts the total number of individual
-    nucleon–nucleon interactions.
+    The overlap function quantifies the effective transverse area where nucleons
+    from the two nuclei can interact. It provides the geometric foundation for
+    calculating collision probabilities.
+  </p>
+</section>
+
+---
+
+<section class="highlight">
+  <h2>Inelastic Nucleus–Nucleus Cross Section</h2>
+
+  <p>
+    Within the optical Glauber approximation, the probability for at least one
+    inelastic nucleon–nucleon interaction at impact parameter <em>b</em> is:
+  </p>
+
+  <p class="equation">
+    P<sub>inel</sub>(b) = 1 − [1 − σ<sub>NN</sub><sup>inel</sup> T<sub>AB</sub>(b)]<sup>AB</sup>
   </p>
 
   <p>
-    These quantities form the basis for centrality determination and scaling
-    relations in heavy-ion collisions and serve as essential inputs to
-    hydrodynamic and transport models.
+    Integrating over all impact parameters yields the total inelastic
+    nucleus–nucleus cross section:
+  </p>
+
+  <p class="equation">
+    σ<sub>AB</sub><sup>inel</sup> = ∫ 2πb db · P<sub>inel</sub>(b)
+  </p>
+</section>
+
+---
+
+<section>
+  <h2>Number of Binary Collisions (N<sub>coll</sub>)</h2>
+
+  <p>
+    The average number of binary nucleon–nucleon collisions at a given impact
+    parameter is given by:
+  </p>
+
+  <p class="equation">
+    N<sub>coll</sub>(b) = AB · T<sub>AB</sub>(b) · σ<sub>NN</sub><sup>inel</sup>
+  </p>
+
+  <p>
+    This quantity is essential for scaling hard processes such as jet and heavy
+    quark production.
+  </p>
+</section>
+
+---
+
+<section>
+  <h2>Number of Participating Nucleons (N<sub>part</sub>)</h2>
+
+  <p>
+    A nucleon is considered a participant if it undergoes at least one inelastic
+    collision. The number of participants is given by:
+  </p>
+
+  <p class="equation">
+    N<sub>part</sub>(b) =
+    A ∫ T<sub>A</sub>(s) [1 − (1 − σ<sub>NN</sub><sup>inel</sup> T<sub>B</sub>(s − b))<sup>B</sup>] d²s
+    + B ∫ T<sub>B</sub>(s − b) [1 − (1 − σ<sub>NN</sub><sup>inel</sup> T<sub>A</sub>(s))<sup>A</sup>] d²s
+  </p>
+
+  <p>
+    N<sub>part</sub> provides a natural measure of collision centrality and is
+    strongly correlated with particle multiplicity.
+  </p>
+</section>
+
+
+::contentReference[oaicite:5]{index=5}
+
+
+---
+
+<section class="highlight">
+  <h2>Limitations of the Optical Approximation</h2>
+
+  <p>
+    The optical Glauber model assumes smooth nuclear densities and neglects
+    event-by-event fluctuations. While it provides accurate average values of
+    N<sub>part</sub> and N<sub>coll</sub>, it cannot describe fluctuations in
+    geometry or eccentricity.
+  </p>
+
+  <p>
+    These limitations motivate the Monte Carlo Glauber approach, where nucleons
+    are treated as discrete objects and collisions are simulated event by event
+    :contentReference[oaicite:6]{index=6}.
+  </p>
+</section>
+
+---
+
+<section class="next">
+  <h2>Connection to GLISSANDO 3</h2>
+
+  <p>
+    GLISSANDO&nbsp;3 implements the Monte Carlo Glauber model using the same
+    theoretical foundations presented here. The nuclear densities, collision
+    criteria, and geometric observables directly follow from the equations
+    discussed in this section.
+  </p>
+
+  <p>
+    In the next section, we describe how these mathematical concepts are
+    translated into a practical simulation framework.
   </p>
 </section>
 
