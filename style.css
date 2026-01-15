@@ -27,11 +27,11 @@ p {
 
 .equation {
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1.15em;
   margin: 20px 0;
-
-  
+  font-family: "Times New Roman", serif;
 }
+
 .highlight {
   background-color: #f3f6fa;
   border-left: 5px solid #003366;
