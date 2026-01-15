@@ -6,6 +6,15 @@ body {
   color: #222;
 }
 
+ol {
+  margin-left: 25px;
+}
+
+ul li {
+  margin-bottom: 6px;
+}
+
+
 nav a {
   margin-right: 15px;
   text-decoration: none;
