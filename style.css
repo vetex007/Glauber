@@ -1,164 +1,103 @@
 /* ===============================
-   GLOBAL PAGE STYLE
-   =============================== */
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.7;
-  background-color: #ffffff;
-  color: #222;
-}
-
-/* Page content spacing */
-main, section {
-  padding: 0 40px;
-}
-
-/* ===============================
    MAIN WEBSITE TITLE (HERO BANNER)
    =============================== */
 
 .main-title {
+  position: relative;
   text-align: center;
-  padding: 35px 15px;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #ffffff;
-  margin-bottom: 25px;
+  padding: 45px 20px;
+  margin-bottom: 30px;
 
-  /* 3D depth effect */
+  /* Elegant modern gradient */
+  background: linear-gradient(
+    135deg,
+    #0b1d26,
+    #163a4a,
+    #1f4d5f
+  );
+
+  color: #ffffff;
+
+  /* Soft depth (not harsh 3D) */
   box-shadow:
-    0 6px 15px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 10px 25px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
+/* Accent line under title */
+.main-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg, #7fd1ae, #5aa7c7);
+  border-radius: 2px;
+}
+
+/* Title */
 .main-title h1 {
-  font-size: 2.8em;
+  font-size: 3em;
   margin: 0;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
 
-  /* Text depth */
+  /* Strong but elegant depth */
   text-shadow:
-    0 2px 3px rgba(0, 0, 0, 0.6),
-    0 6px 12px rgba(0, 0, 0, 0.4);
+    0 3px 6px rgba(0, 0, 0, 0.6),
+    0 10px 20px rgba(0, 0, 0, 0.35);
 }
 
+/* Subtitle */
 .main-title p {
-  margin-top: 10px;
+  margin: 14px auto 0 auto;
+  max-width: 520px;
+  padding: 8px 14px;
+
   font-size: 1.15em;
   font-weight: 400;
   opacity: 0.95;
+
   text-align: center;
 
-  /* Subtle depth */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  /* Glass-like soft highlight */
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+
+  /* Gentle depth */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* ===============================
-   NAVIGATION BAR
+   PAGE TRANSITION (FADE)
    =============================== */
 
-nav {
-  text-align: center;
-  margin-bottom: 20px;
+body {
+  opacity: 0;
+  animation: fadeIn 0.45s ease-in forwards;
 }
 
-nav a {
-  margin: 0 14px;
-  text-decoration: none;
-  font-weight: 600;
-  color: #203a43;
-  transition: color 0.2s ease;
-}
-
-nav a:hover {
-  color: #2c5364;
-  text-decoration: underline;
-}
-
-/* ===============================
-   HEADINGS
-   =============================== */
-
-h1, h2, h3 {
-  color: #002244;
-}
-
-h2 {
-  margin-top: 35px;
-  margin-bottom: 12px;
-}
-
-/* ===============================
-   TEXT & LISTS
-   =============================== */
-
-p {
-  text-align: justify;
-  margin-bottom: 15px;
-}
-
-ul {
-  margin-left: 25px;
-}
-
-ul li {
-  margin-bottom: 6px;
-}
-
-ol {
-  margin-left: 30px;
-}
-
-/* ===============================
-   EQUATIONS
-   =============================== */
-
-.equation {
-  text-align: center;
-  font-size: 1.15em;
-  margin: 22px 0;
-  font-family: "Times New Roman", serif;
-}
-
-/* ===============================
-   HIGHLIGHT SECTIONS
-   =============================== */
-
-.highlight {
-  background-color: #f3f6fa;
-  border-left: 5px solid #003366;
-  padding: 18px;
-  margin: 30px 0;
-}
-
-/* ===============================
-   NEXT / CALLOUT SECTIONS
-   =============================== */
-
-.next {
-  background-color: #eef7f0;
-  border-left: 5px solid #2e7d32;
-  padding: 18px;
-  margin: 35px 0;
-}
-
-/* ===============================
-   RESPONSIVE FIXES
-   =============================== */
-
-@media (max-width: 768px) {
-  main, section {
-    padding: 0 20px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
   }
-
-  .main-title h1 {
-    font-size: 2.2em;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .main-title p {
-    font-size: 1em;
+/* Fade-out when navigating */
+.fade-out {
+  animation: fadeOut 0.35s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
