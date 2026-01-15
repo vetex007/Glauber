@@ -17,41 +17,127 @@
 <hr>
 
 <section>
-  <h1>Introduction</h1>
+  <h1>Introduction and Physics Motivation</h1>
 
   <p>
-    Ultra-relativistic heavy-ion collisions provide a unique laboratory for
-    studying strongly interacting matter under extreme conditions of temperature
-    and energy density. At sufficiently high energies, Quantum Chromodynamics
-    (QCD) predicts the formation of a deconfined state of quarks and gluons,
-    commonly referred to as the <strong>Quark–Gluon Plasma (QGP)</strong>.
+    Ultra-relativistic nuclear collisions produce the most complex many-body
+    systems accessible in laboratory experiments. When two heavy nuclei collide
+    at high energies, thousands of particles are created within a tiny spacetime
+    volume, forming strongly interacting matter under extreme conditions of
+    temperature and energy density.
   </p>
 
   <p>
-    Experiments at modern particle accelerators collide heavy nuclei at
-    ultra-relativistic energies, creating systems that briefly reach conditions
-    similar to those believed to have existed in the early universe. The
-    properties of the produced medium are inferred indirectly through final-state
-    observables such as particle multiplicities, collective flow, and quarkonium
-    production.
+    Quantum Chromodynamics (QCD), the fundamental theory of the strong interaction,
+    predicts that such conditions lead to the formation of a deconfined state of
+    quarks and gluons known as the <strong>Quark–Gluon Plasma (QGP)</strong>.
+    Experimental programs at RHIC and the LHC aim to characterize this medium and
+    understand its dynamical properties.
+  </p>
+</section>
+
+<section class="highlight">
+  <h2>Why Geometry Matters in Heavy-Ion Collisions</h2>
+
+  <p>
+    Unlike elementary proton–proton collisions, nucleus–nucleus interactions are
+    intrinsically geometric. Each nucleus is an extended object composed of many
+    nucleons, and the outcome of a collision depends sensitively on how these
+    nucleons overlap in space.
+  </p>
+
+  <ul>
+    <li>The number of nucleons that actually interact varies event by event</li>
+    <li>The collision overlap region can be circular or highly deformed</li>
+    <li>Fluctuations in geometry directly affect final-state observables</li>
+  </ul>
+
+  <p>
+    Since the impact parameter and nucleon-level configuration cannot be measured
+    directly, theoretical modeling is required to connect experimental observables
+    to the underlying collision geometry :contentReference[oaicite:1]{index=1}.
+  </p>
+</section>
+
+
+::contentReference[oaicite:2]{index=2}
+
+
+<section>
+  <h2>From Measured Signals to Physical Quantities</h2>
+
+  <p>
+    Experiments measure quantities such as charged-particle multiplicity, transverse
+    energy, and spectator nucleon energy. These observables are monotonically related
+    to the collision geometry but do not uniquely determine it.
   </p>
 
   <p>
-    A precise understanding of the initial geometry of nuclear collisions is
-    essential for interpreting these observables. Since the early stages of the
-    collision are not directly accessible experimentally, theoretical models
-    play a crucial role. Among these, the <strong>Glauber model</strong> has become
-    a standard framework for estimating the collision geometry and the number of
-    interacting nucleons.
+    To interpret the data, one introduces geometric quantities that characterize the
+    collision:
+  </p>
+
+  <ul>
+    <li><strong>N<sub>part</sub></strong> — number of participating nucleons</li>
+    <li><strong>N<sub>coll</sub></strong> — number of binary nucleon–nucleon collisions</li>
+    <li><strong>b</strong> — impact parameter</li>
+    <li><strong>ε<sub>n</sub></strong> — initial-state spatial eccentricities</li>
+  </ul>
+
+  <p>
+    These quantities form the backbone of centrality determination and scaling
+    relations used throughout heavy-ion phenomenology.
+  </p>
+</section>
+
+<section class="highlight">
+  <h2>Role of the Glauber Model</h2>
+
+  <p>
+    The Glauber model provides a probabilistic framework to estimate collision
+    geometry based on nuclear density distributions and the inelastic
+    nucleon–nucleon cross section. It translates an unobservable microscopic
+    configuration into experimentally useful geometric quantities.
   </p>
 
   <p>
-    In this documentation, we present a detailed discussion of the Glauber model,
-    its historical development, mathematical formulation, and its practical
-    implementation using the Monte Carlo event generator
-    <strong>GLISSANDO&nbsp;3</strong>. The aim is to provide a clear and structured
-    reference for understanding Glauber-based simulations in heavy-ion physics.
+    Over several decades, the Glauber model has evolved from a quantum mechanical
+    scattering formalism into a practical and robust tool used by all major
+    heavy-ion experiments :contentReference[oaicite:3]{index=3}.
   </p>
+</section>
+
+
+::contentReference[oaicite:4]{index=4}
+
+
+<section>
+  <h2>From Glauber Geometry to Modern Simulations</h2>
+
+  <p>
+    Modern analyses require event-by-event modeling of the initial geometry,
+    including fluctuations in nucleon positions and energy deposition. This has
+    motivated the widespread adoption of Monte Carlo implementations of the
+    Glauber model.
+  </p>
+
+  <p>
+    In this work, we focus on <strong>GLISSANDO&nbsp;3</strong>, a modern Monte Carlo
+    Glauber framework that incorporates realistic nuclear densities, fluctuating
+    sources, and flexible modeling options. It serves as a bridge between
+    fundamental geometry and state-of-the-art heavy-ion simulations.
+  </p>
+</section>
+
+<section class="next">
+  <h2>Structure of This Documentation</h2>
+
+  <ol>
+    <li><strong>Historical Background</strong> — evolution of the Glauber model</li>
+    <li><strong>Mathematical Framework</strong> — theory and equations</li>
+    <li><strong>GLISSANDO 3</strong> — implementation and workflow</li>
+    <li><strong>Results & Observables</strong> — N<sub>part</sub>, N<sub>coll</sub>, ε<sub>n</sub></li>
+  </ol>
 </section>
 
 </body>
