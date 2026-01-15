@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GLISSANDO 3 | Monte Carlo Glauber Model</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Introduction</a>
+  <a href="history.html">History</a>
+  <a href="maths.html">Mathematical Framework</a>
+  <a href="glissando.html">GLISSANDO 3</a>
+</nav>
+
+<hr>
+
+<section>
+  <h1>GLISSANDO&nbsp;3: Monte Carlo Glauber Simulations</h1>
+
+  <p>
+    GLISSANDO&nbsp;3 is a modern Monte Carlo implementation of the Glauber model,
+    designed to simulate the initial geometric configuration of relativistic
+    nuclear collisions. It provides a bridge between the theoretical framework
+    of Glauber modeling and the practical requirements of heavy-ion data analysis.
+  </p>
+
+  <p>
+    The primary purpose of GLISSANDO&nbsp;3 is to generate event-by-event collision
+    geometries, including fluctuations in nucleon positions and interaction
+    patterns, and to calculate geometric observables relevant for experimental
+    and phenomenological studies.
+  </p>
+</section>
+
+<section class="highlight">
+  <h2>Why Monte Carlo Glauber?</h2>
+
+  <p>
+    While the optical Glauber model yields accurate average quantities, it cannot
+    describe event-by-event fluctuations that play a crucial role in modern
+    heavy-ion physics. Observables such as anisotropic flow coefficients are
+    sensitive to fluctuations in the initial geometry.
+  </p>
+
+  <p>
+    GLISSANDO&nbsp;3 addresses this limitation by explicitly sampling individual
+    nucleons and simulating collisions on an event-by-event basis, thereby
+    capturing realistic fluctuations in:
+  </p>
+
+  <ul>
+    <li>Number of participating nucleons</li>
+    <li>Number of binary collisions</li>
+    <li>Spatial eccentricities of the overlap region</li>
+    <li>Energy or entropy deposition profiles</li>
+  </ul>
+</section>
+
+
+::contentReference[oaicite:0]{index=0}
+
+
+---
+
+<section>
+  <h2>Event Generation Workflow</h2>
+
+  <p>
+    Each GLISSANDO&nbsp;3 event represents a single nuclear collision with a
+    specific geometric configuration. The simulation proceeds through the
+    following steps:
+  </p>
+
+  <ol>
+    <li>Sampling nucleon positions inside each nucleus</li>
+    <li>Selection of a random impact parameter</li>
+    <li>Determination of nucleon–nucleon collisions</li>
+    <li>Identification of participant and spectator nucleons</li>
+    <li>Calculation of geometric observables</li>
+  </ol>
+</section>
+
+
+::contentReference[oaicite:1]{index=1}
+
+
+---
+
+<section>
+  <h2>Nuclear Geometry and Input Parameters</h2>
+
+  <p>
+    GLISSANDO&nbsp;3 models each nucleus as a collection of nucleons distributed
+    according to realistic nuclear density profiles. For heavy nuclei, the
+    Woods–Saxon distribution is used, with parameters taken from experimental
+    measurements.
+  </p>
+
+  <ul>
+    <li><strong>R</strong> — nuclear radius</li>
+    <li><strong>a</strong> — surface diffuseness</li>
+    <li><strong>A</strong> — mass number of the nucleus</li>
+    <li><strong>σ<sub>NN</sub><sup>inel</sup></strong> — inelastic nucleon–nucleon cross section</li>
+  </ul>
+
+  <p>
+    The inelastic nucleon–nucleon cross section is energy dependent and serves as
+    a crucial external input to the simulation.
+  </p>
+</section>
+
+---
+
+<section class="highlight">
+  <h2>Collision Criterion</h2>
+
+  <p>
+    Two nucleons from different nuclei are assumed to collide if their transverse
+    separation satisfies the geometric condition:
+  </p>
+
+  <p class="equation">
+    d<sub>T</sub> ≤ √(σ<sub>NN</sub><sup>inel</sup> / π)
+  </p>
+
+  <p>
+    This “black-disk” approximation provides a simple and efficient way to
+    implement nucleon–nucleon interactions while preserving the correct average
+    collision rates.
+  </p>
+</section>
+
+---
+
+<section>
+  <h2>Participants, Binary Collisions, and Centrality</h2>
+
+  <p>
+    After determining all nucleon–nucleon interactions in an event, GLISSANDO&nbsp;3
+    identifies:
+  </p>
+
+  <ul>
+    <li><strong>Participants (N<sub>part</sub>)</strong>: nucleons that interact at least once</li>
+    <li><strong>Binary collisions (N<sub>coll</sub>)</strong>: total number of NN interactions</li>
+  </ul>
+
+  <p>
+    These quantities form the basis for centrality determination. Events with
+    large N<sub>part</sub> correspond to central collisions, while small values
+    indicate peripheral collisions.
+  </p>
+</section>
+
+
+::contentReference[oaicite:2]{index=2}
+
+
+---
+
+<section>
+  <h2>Initial-State Geometry and Eccentricities</h2>
+
+  <p>
+    A key strength of GLISSANDO&nbsp;3 is its ability to calculate spatial
+    eccentricities of the initial overlap region. These eccentricities quantify
+    the shape of the participant zone and play a central role in the development
+    of collective flow.
+  </p>
+
+  <p>
+    The n-th order eccentricity is defined as:
+  </p>
+
+  <p class="equation">
+    ε<sub>n</sub> =
+    \frac{\sqrt{⟨r<sup>n</sup> cos(nφ)⟩² + ⟨r<sup>n</sup> sin(nφ)⟩²}}
+         {⟨r<sup>n</sup>⟩}
+  </p>
+
+  <p>
+    Event-by-event fluctuations in ε<sub>n</sub> provide the initial conditions
+    necessary to explain observed flow harmonics in heavy-ion collisions.
+  </p>
+</section>
+
+---
+
+<section class="highlight">
+  <h2>Output and Analysis</h2>
+
+  <p>
+    GLISSANDO&nbsp;3 produces output files containing both event-level and
+    ensemble-averaged observables. These outputs are typically analyzed using
+    ROOT to construct distributions of:
+  </p>
+
+  <ul>
+    <li>N<sub>part</sub> and N<sub>coll</sub></li>
+    <li>Impact parameter distributions</li>
+    <li>Participant densities in the transverse plane</li>
+    <li>Eccentricities ε<sub>n</sub></li>
+  </ul>
+
+  <p>
+    These quantities serve as essential inputs for hydrodynamic models and
+    provide a baseline for interpreting experimental data.
+  </p>
+</section>
+
+---
+
+<section class="next">
+  <h2>Connection to Results</h2>
+
+  <p>
+    In the following sections, we present results obtained using GLISSANDO&nbsp;3
+    for various collision systems and energies. The generated distributions and
+    density profiles illustrate how initial-state geometry influences observed
+    phenomena in relativistic heavy-ion collisions.
+  </p>
+</section>
+
+</body>
+</html>
