@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GLISSANDO Results | The Glauber Model</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- MAIN SITE TITLE -->
+<header class="main-title">
+  <h1>The Glauber Model</h1>
+  <p>Understanding Nuclear Collision Geometry</p>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html">Introduction</a>
+  <a href="history.html">History</a>
+  <a href="maths.html">Mathematical Framework</a>
+  <a href="glissando.html">GLISSANDO 3</a>
+  <a href="results.html">Results</a>
+</nav>
+
+<hr>
+
+<main>
+
+<!-- ================================================= -->
+<section>
+  <h2>GLISSANDO&nbsp;3 Installation and Setup</h2>
+
+  <p>
+    This section describes the installation and basic usage of
+    <strong>GLISSANDO&nbsp;3</strong> for Monte Carlo Glauber simulations.
+    All simulations presented here were performed on a Linux environment
+    using ROOT for analysis.
+  </p>
+</section>
+
+<section class="highlight">
+  <h3>Prerequisites</h3>
+  <ul>
+    <li>Linux environment (Ubuntu recommended)</li>
+    <li><code>g++</code> compiler with C++11 support</li>
+    <li>
+      <a href="https://root.cern/">ROOT</a> (version 5.32 or 6.18)
+      for compilation and analysis
+    </li>
+    <li>
+      <a href="https://www.doxygen.org">Doxygen</a> (version 1.74 or newer)
+      for documentation generation
+    </li>
+    <li><code>texlive-fonts-recommended</code> for LaTeX-style PDFs</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Download and Extract</h3>
+
+  <pre><code>
+# Download the package (replace xxx with actual version)
+wget https://www.ujk.edu.pl/homepages/mryb/GLISSANDO/glissando3xxx.tar.gz
+
+# Extract the archive
+tar -zxvf glissando3xxx.tar.gz
+cd glissando3
+  </code></pre>
+</section>
+
+<section>
+  <h3>Compile the Code</h3>
+  <pre><code>make</code></pre>
+</section>
+
+<section>
+  <h3>Run a Test Simulation</h3>
+  <pre><code>
+# Edit input configuration
+vim input/input.dat
+
+# Run GLISSANDO
+./glissando3
+
+# Output ROOT file
+output/glissando.root
+  </code></pre>
+</section>
+
+<section>
+  <h3>Documentation and Demo Runs</h3>
+  <pre><code>
+make cleandoc
+make doc
+
+./demo_ver_2.sh
+./demo_ver_3.sh
+./centrality.sh
+  </code></pre>
+
+  <h4>Batch Mode Execution</h4>
+  <pre><code>
+./demo_ver_2.sh &lt; one.dat
+./demo_ver_3.sh &lt; one.dat
+  </code></pre>
+</section>
+
+<section>
+  <h3>Cleanup and Packaging</h3>
+  <ul>
+    <li><code>make clean</code> – remove object and binary files</li>
+    <li><code>make cleandoc</code> – remove documentation</li>
+    <li><code>make cleanoutput</code> – remove output ROOT files</li>
+    <li><code>make package</code> – create distributable archive</li>
+  </ul>
+</section>
+
+<!-- ================================================= -->
+<section class="next">
+  <h2>Collision Systems Studied at √s<sub>NN</sub> = 5.36 TeV</h2>
+
+  <p>
+    GLISSANDO&nbsp;3 simulations were performed at LHC energies for a variety
+    of collision systems, ranging from the smallest to the heaviest nuclear
+    configurations. This allows a systematic study of system-size dependence
+    of initial-state geometry.
+  </p>
+</section>
+
+<!-- ================================================= -->
+<section>
+  <h3>A. Proton–Proton (p+p) Collisions</h3>
+
+  <ul>
+    <li>NUMA = 1, NUMB = 1</li>
+    <li>Number of events: 100,000</li>
+    <li>Partonic substructure: 3 constituent quarks per nucleon</li>
+  </ul>
+
+  <p><strong>Key observables:</strong></p>
+  <ul>
+    <li>Mean number of wounded sources (N<sub>w</sub>)</li>
+    <li>Eccentricity ε<sub>2</sub> distributions</li>
+    <li>Participant-plane source projections</li>
+  </ul>
+
+  <p>
+    Even in the smallest collision system, geometric fluctuations generate
+    non-zero eccentricities, highlighting the importance of sub-nucleonic
+    structure.
+  </p>
+</section>
+
+<!-- ================================================= -->
+<section>
+  <h3>B. Oxygen–Oxygen (O+O) Collisions</h3>
+
+  <ul>
+    <li>NUMA = 16, NUMB = 16</li>
+    <li>Number of events: 100,000</li>
+  </ul>
+
+  <p>
+    O+O collisions represent an intermediate system where collective behavior
+    begins to emerge while fluctuations remain significant. The transition
+    from small to medium-sized systems is clearly visible in the distributions
+    of N<sub>w</sub> and ε<sub>n</sub>.
+  </p>
+
+  <p><strong>Results include:</strong></p>
+  <ul>
+    <li>N<sub>w</sub> and N<sub>coll</sub> distributions</li>
+    <li>Centrality-dependent eccentricities</li>
+    <li>Transverse density profiles</li>
+  </ul>
+</section>
+
+<!-- ================================================= -->
+<section>
+  <h3>C. Xenon–Xenon (Xe+Xe) Collisions</h3>
+
+  <ul>
+    <li>NUMA = 129, NUMB = 129</li>
+    <li>Deformed nuclear geometry</li>
+  </ul>
+
+  <p>
+    Xe+Xe collisions introduce intrinsic nuclear deformation effects.
+    Event-by-event fluctuations in geometry lead to enhanced higher-order
+    eccentricities compared to spherical nuclei.
+  </p>
+
+  <p>
+    These features provide a sensitive test of Glauber modeling and are
+    directly relevant for interpreting LHC Xe+Xe data.
+  </p>
+</section>
+
+<!-- ================================================= -->
+<section>
+  <h3>D. Lead–Lead (Pb+Pb) Collisions</h3>
+
+  <ul>
+    <li>NUMA = 208, NUMB = 208</li>
+    <li>Largest system studied</li>
+  </ul>
+
+  <p>
+    Pb+Pb collisions exhibit the strongest collective effects and the
+    smoothest average geometry. The large number of participants suppresses
+    relative fluctuations, making this system ideal for studying bulk QGP
+    properties.
+  </p>
+
+  <p><strong>Key results:</strong></p>
+  <ul>
+    <li>Centrality classes based on N<sub>w</sub></li>
+    <li>Average eccentricities ε<sub>2</sub>, ε<sub>3</sub></li>
+    <li>Two-dimensional participant density projections</li>
+  </ul>
+</section>
+
+<!-- ================================================= -->
+<section class="highlight">
+  <h2>Summary of Results</h2>
+
+  <p>
+    The GLISSANDO&nbsp;3 simulations demonstrate a clear system-size dependence
+    of initial-state geometry. From p+p to Pb+Pb collisions, the increase in
+    participant number leads to a smoother geometry and reduced relative
+    fluctuations, while intrinsic nuclear structure plays a significant role
+    in intermediate systems.
+  </p>
+
+  <p>
+    These results form the foundation for subsequent hydrodynamic modeling and
+    comparison with experimental measurements at the LHC.
+  </p>
+</section>
+
+</main>
+
+<!-- PAGE TRANSITION SCRIPT -->
+<script>
+  const links = document.querySelectorAll("nav a");
+  links.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = this.href;
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = target;
+      }, 300);
+    });
+  });
+</script>
+
+</body>
+</html>
